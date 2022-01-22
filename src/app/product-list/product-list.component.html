@@ -1,9 +1,17 @@
 <h2>Products</h2>
 
-<div *ngFor="let product of products">
+<div *ngFor="let item of products">
   <h3>
-    {{ product.name }}
+    <a [title]="item.name + ' details'">
+      {{ item.name }}
+    </a>
   </h3>
+  <!-- 对于angular的if 空的字符串也表示否 -->
+  <p *ngIf="item.description">Description: {{ item.description }}</p>
+  <!-- 事件绑定要在此事件用一组圆括号 ( ) -->
+  <button (click)="share()">Share</button>
+  <app-product-alerts [productInput]="item" (notify)="onNotify()">
+  </app-product-alerts>
 </div>
 
 <!-- 
