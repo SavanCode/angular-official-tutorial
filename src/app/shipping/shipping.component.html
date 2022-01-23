@@ -1,0 +1,6 @@
+<p>shipping works!</p>
+<!-- async 管道从数据流中返回最新值，并在所属组件的生命期内持续返回 -->
+<div class="shipping-item" *ngFor="let shipping of shippingCosts | async">
+  <span>{{ shipping.type }}</span>
+  <span>{{ shipping.price | currency }}</span>
+</div>
